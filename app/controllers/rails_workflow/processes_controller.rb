@@ -12,7 +12,7 @@ module RailsWorkflow
     def index
       @processes = ProcessDecorator.decorate_collection(undecorated_collection)
 
-      @errors = Error.
+      @errors = RailsWorkflow::Error.
           unresolved.order(id: :asc).
           includes(:parent).limit(10)
 
